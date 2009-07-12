@@ -22,6 +22,10 @@ WriteMakefile(
         'Scalar::Util' => 0,
         'List::Util'   => 0,
     },
+    ( $ExtUtils::MakeMaker::VERSION >= 6.46
+        ? ( META_MERGE => { resources => {
+            repository => 'http://github.com/dankogai/p5-class-builtin' } } )
+        : () ),
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES    => 'Class-Builtin-*' },
 );
